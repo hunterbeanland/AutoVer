@@ -1,0 +1,40 @@
+﻿'ISSUES TO CHECK:
+'syncing when set to never
+'2. Performing a 'restore all files' results in a simple copy of the backup folder to the source ie all file versions in the backup are restored to the source. IMHO a restore should only restore the current version of files.
+'3. Restored files retain their backupdate suffix as added by autover. Why would you think that I would not want the original filenames?
+'error is ver explorer aftr compare and click on root
+'unc with cred: http://www.codeproject.com/KB/IP/ConnectUNCPathCredentials.aspx
+'firewall: http://www.gasov.com/content/view/124/45/
+'This results in the current backup copy (i.e. without a date-stamp in the filename) actually being older than several of the "previous" backups, depending on how many times I've opened the file to read its contents since the last time I saved changes.
+
+'TO DO (future versions):
+'Skip Open File screen checkbox
+'1. Put the Exclusion list in a listbox
+'2. On the Exclusion listbox item, include button to create a new, targeted watcher
+'Some kind of progress indicator for initial and manual backups. Preview of files to be copied when performing initial or manual sync.
+'Change AutoVer system tray icon depending on watcher statuses
+'skip run external program dialog
+'Copy/paste when creating a watcher, so you could create one or more templates. When creating a new watcher you could copy a template and edit the source/destination fields and be done.
+'Some way to see what is in the backlog if the destination was unreachable when attempting to copy files.
+'Editable comments for each file version 
+'option to pause all with a timer after which they will be resumed. Perhaps allow choices starting with 15 minutes, 30 minutes, and 1 , 2, 4, or 8 hours.
+'progressive pruning feature
+'You could choose the number of files to keep in every time period (each day - week - month - year - forever).
+'keep the last x versions
+'If backups are older than 30 days, then keep only the last (x copies?) copy from each day. If backups are older than 90 days, then keep only the last copy from each week. 
+'   If backups are older than 365 days, then keep only the last copy from each month. If backups are older than 1826 days (5 years), then keep only the last copy from each year.
+'delete backup files when original is deleted -> add option for zip backup files when original is deleted
+'watch it's own config files and auto-load the config on change
+'VSS: http://www.codeproject.com/Articles/22745/Volume-Shadow-Copies-from-NET
+'Multiple backup paths/ Failover path
+'More cols in main screen (configurable?) - Name, Status, Description, Source, Target, Statistics, Last File, Last Message
+'Watch description
+'Language support
+'Support encryption of backup files (you can use a TrueCrypt volume for your backup folder in the mean time) 
+'System tray to summarise number of running watches and errors.
+'Add context menu entries to Windows Explorer ("Compare to Current", "Restore", "Protect", "Comment" and "Open AutoVer Here") 
+'Visual indication as to how big the change is between versions. 
+'Support Subversion 
+'Maybe customise the process priority 
+'Maybe add internal graphic file comparison 
+'Maybe add internal file preview 
