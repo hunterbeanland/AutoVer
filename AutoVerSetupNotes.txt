@@ -1,0 +1,1 @@
+Please make sure AutoVer is not currently running (and the Service is stopped if you are using it), otherwise you will need to restart Windows after this installation for the install to complete.

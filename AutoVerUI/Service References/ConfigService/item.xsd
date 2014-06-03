@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/AutoVer" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/AutoVer" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://127.0.0.1:9072/AutoVer/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfWatcherStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WatcherStatus" nillable="true" type="tns:WatcherStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWatcherStatus" nillable="true" type="tns:ArrayOfWatcherStatus" />
+  <xs:complexType name="WatcherStatus">
+    <xs:sequence>
+      <xs:element name="_BackupFolderFailure" type="xs:boolean" />
+      <xs:element name="_Enabled" type="xs:boolean" />
+      <xs:element name="_Name" nillable="true" type="xs:string" />
+      <xs:element name="_Started" type="xs:boolean" />
+      <xs:element name="_Statistics" nillable="true" type="xs:string" />
+      <xs:element name="_UserMessage" nillable="true" type="xs:string" />
+      <xs:element name="_WatcherId" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WatcherStatus" nillable="true" type="tns:WatcherStatus" />
+</xs:schema>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://beanland.net.au/BeanAppService.asmx?wsdl" docRef="http://beanland.net.au/BeanAppService.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://beanland.net.au/BeanAppService.asmx" xmlns:q1="http://beanland.net.au/" binding="q1:BeanAppServiceSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://beanland.net.au/BeanAppService.asmx" xmlns:q2="http://beanland.net.au/" binding="q2:BeanAppServiceSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

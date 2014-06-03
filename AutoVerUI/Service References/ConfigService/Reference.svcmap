@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2268f156-dbd1-45ea-b9f3-2377359c8f81" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://127.0.0.1:9072/AutoVer/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="fafaaf46-4bf7-484d-9788-350d86b8d884" SourceId="1" SourceUrl="http://127.0.0.1:9072/AutoVer/?xsd=xsd3" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="c3fb1879-62bc-4583-9bd1-307ca4c0e802" SourceId="1" SourceUrl="http://127.0.0.1:9072/AutoVer/?disco" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="67f07b79-9d31-497f-b8b7-f5fbfa18228b" SourceId="1" SourceUrl="http://127.0.0.1:9072/AutoVer/?xsd=xsd2" />
+    <MetadataFile FileName="item.wsdl" MetadataType="Wsdl" ID="54321200-b46c-4aa7-b6eb-e1b0e206afe1" SourceId="1" SourceUrl="http://127.0.0.1:9072/AutoVer/?wsdl=wsdl0" />
+    <MetadataFile FileName="item1.wsdl" MetadataType="Wsdl" ID="9c318244-998b-4b6a-8097-4a82b9bf8a91" SourceId="1" SourceUrl="http://127.0.0.1:9072/AutoVer/?wsdl=wsdl1" />
+    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="a46e3fb4-cab5-4a0b-bdb3-75fcc5aa8552" SourceId="1" SourceUrl="http://127.0.0.1:9072/AutoVer/?xsd=xsd1" />
+    <MetadataFile FileName="ConfigEngine.wsdl" MetadataType="Wsdl" ID="91ae310c-e5c5-400c-9a59-b41aa98664b0" SourceId="1" SourceUrl="http://127.0.0.1:9072/AutoVer/?wsdl" />
+    <MetadataFile FileName="item5.xsd" MetadataType="Schema" ID="819765b8-e2cd-447d-bea6-356883ff5d0c" SourceId="1" SourceUrl="http://127.0.0.1:9072/AutoVer/?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

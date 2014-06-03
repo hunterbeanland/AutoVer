@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://Beanland.AutoVer.Config" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://Beanland.AutoVer.Config" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://Beanland.AutoVer.Config/Imports">
+      <xsd:import schemaLocation="http://127.0.0.1:9072/AutoVer/?xsd=xsd0" namespace="http://Beanland.AutoVer.Config" />
+      <xsd:import schemaLocation="http://127.0.0.1:9072/AutoVer/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://127.0.0.1:9072/AutoVer/?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://127.0.0.1:9072/AutoVer/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/AutoVer" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IConfigEngine_GetUserMesage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserMesage" />
+  </wsdl:message>
+  <wsdl:message name="IConfigEngine_GetUserMesage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserMesageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConfigEngine_GetIsService_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIsService" />
+  </wsdl:message>
+  <wsdl:message name="IConfigEngine_GetIsService_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIsServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConfigEngine_GetAppConfig_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppConfig" />
+  </wsdl:message>
+  <wsdl:message name="IConfigEngine_GetAppConfig_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppConfigResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConfigEngine_GetAppConfigFolder_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppConfigFolder" />
+  </wsdl:message>
+  <wsdl:message name="IConfigEngine_GetAppConfigFolder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppConfigFolderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConfigEngine_GetConfigFolder_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetConfigFolder" />
+  </wsdl:message>
+  <wsdl:message name="IConfigEngine_GetConfigFolder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetConfigFolderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConfigEngine_GetWatcherStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWatcherStatus" />
+  </wsdl:message>
+  <wsdl:message name="IConfigEngine_GetWatcherStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWatcherStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConfigEngine_LoadAppConfig_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadAppConfig" />
+  </wsdl:message>
+  <wsdl:message name="IConfigEngine_LoadAppConfig_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadAppConfigResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConfigEngine_SaveAppConfig_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveAppConfig" />
+  </wsdl:message>
+  <wsdl:message name="IConfigEngine_SaveAppConfig_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveAppConfigResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConfigEngine_LoadWatcherConfig_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadWatcherConfig" />
+  </wsdl:message>
+  <wsdl:message name="IConfigEngine_LoadWatcherConfig_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadWatcherConfigResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConfigEngine_SaveWatcherConfig_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveWatcherConfig" />
+  </wsdl:message>
+  <wsdl:message name="IConfigEngine_SaveWatcherConfig_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveWatcherConfigResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConfigEngine_UpdateWatchersList_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateWatchersList" />
+  </wsdl:message>
+  <wsdl:message name="IConfigEngine_UpdateWatchersList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateWatchersListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConfigEngine_AppConfigDefault_InputMessage">
+    <wsdl:part name="parameters" element="tns:AppConfigDefault" />
+  </wsdl:message>
+  <wsdl:message name="IConfigEngine_AppConfigDefault_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AppConfigDefaultResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConfigEngine_ReloadWatcher_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReloadWatcher" />
+  </wsdl:message>
+  <wsdl:message name="IConfigEngine_ReloadWatcher_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReloadWatcherResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConfigEngine_DeleteWatcher_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteWatcher" />
+  </wsdl:message>
+  <wsdl:message name="IConfigEngine_DeleteWatcher_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteWatcherResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConfigEngine_PauseWatcher_InputMessage">
+    <wsdl:part name="parameters" element="tns:PauseWatcher" />
+  </wsdl:message>
+  <wsdl:message name="IConfigEngine_PauseWatcher_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PauseWatcherResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IConfigEngine">
+    <wsdl:operation name="GetUserMesage">
+      <wsdl:input wsam:Action="http://Beanland.AutoVer.Config/IConfigEngine/GetUserMesage" message="tns:IConfigEngine_GetUserMesage_InputMessage" />
+      <wsdl:output wsam:Action="http://Beanland.AutoVer.Config/IConfigEngine/GetUserMesageResponse" message="tns:IConfigEngine_GetUserMesage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIsService">
+      <wsdl:input wsam:Action="http://Beanland.AutoVer.Config/IConfigEngine/GetIsService" message="tns:IConfigEngine_GetIsService_InputMessage" />
+      <wsdl:output wsam:Action="http://Beanland.AutoVer.Config/IConfigEngine/GetIsServiceResponse" message="tns:IConfigEngine_GetIsService_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAppConfig">
+      <wsdl:input wsam:Action="http://Beanland.AutoVer.Config/IConfigEngine/GetAppConfig" message="tns:IConfigEngine_GetAppConfig_InputMessage" />
+      <wsdl:output wsam:Action="http://Beanland.AutoVer.Config/IConfigEngine/GetAppConfigResponse" message="tns:IConfigEngine_GetAppConfig_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAppConfigFolder">
+      <wsdl:input wsam:Action="http://Beanland.AutoVer.Config/IConfigEngine/GetAppConfigFolder" message="tns:IConfigEngine_GetAppConfigFolder_InputMessage" />
+      <wsdl:output wsam:Action="http://Beanland.AutoVer.Config/IConfigEngine/GetAppConfigFolderResponse" message="tns:IConfigEngine_GetAppConfigFolder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConfigFolder">
+      <wsdl:input wsam:Action="http://Beanland.AutoVer.Config/IConfigEngine/GetConfigFolder" message="tns:IConfigEngine_GetConfigFolder_InputMessage" />
+      <wsdl:output wsam:Action="http://Beanland.AutoVer.Config/IConfigEngine/GetConfigFolderResponse" message="tns:IConfigEngine_GetConfigFolder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWatcherStatus">
+      <wsdl:input wsam:Action="http://Beanland.AutoVer.Config/IConfigEngine/GetWatcherStatus" message="tns:IConfigEngine_GetWatcherStatus_InputMessage" />
+      <wsdl:output wsam:Action="http://Beanland.AutoVer.Config/IConfigEngine/GetWatcherStatusResponse" message="tns:IConfigEngine_GetWatcherStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadAppConfig">
+      <wsdl:input wsam:Action="http://Beanland.AutoVer.Config/IConfigEngine/LoadAppConfig" message="tns:IConfigEngine_LoadAppConfig_InputMessage" />
+      <wsdl:output wsam:Action="http://Beanland.AutoVer.Config/IConfigEngine/LoadAppConfigResponse" message="tns:IConfigEngine_LoadAppConfig_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveAppConfig">
+      <wsdl:input wsam:Action="http://Beanland.AutoVer.Config/IConfigEngine/SaveAppConfig" message="tns:IConfigEngine_SaveAppConfig_InputMessage" />
+      <wsdl:output wsam:Action="http://Beanland.AutoVer.Config/IConfigEngine/SaveAppConfigResponse" message="tns:IConfigEngine_SaveAppConfig_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadWatcherConfig">
+      <wsdl:input wsam:Action="http://Beanland.AutoVer.Config/IConfigEngine/LoadWatcherConfig" message="tns:IConfigEngine_LoadWatcherConfig_InputMessage" />
+      <wsdl:output wsam:Action="http://Beanland.AutoVer.Config/IConfigEngine/LoadWatcherConfigResponse" message="tns:IConfigEngine_LoadWatcherConfig_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveWatcherConfig">
+      <wsdl:input wsam:Action="http://Beanland.AutoVer.Config/IConfigEngine/SaveWatcherConfig" message="tns:IConfigEngine_SaveWatcherConfig_InputMessage" />
+      <wsdl:output wsam:Action="http://Beanland.AutoVer.Config/IConfigEngine/SaveWatcherConfigResponse" message="tns:IConfigEngine_SaveWatcherConfig_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWatchersList">
+      <wsdl:input wsam:Action="http://Beanland.AutoVer.Config/IConfigEngine/UpdateWatchersList" message="tns:IConfigEngine_UpdateWatchersList_InputMessage" />
+      <wsdl:output wsam:Action="http://Beanland.AutoVer.Config/IConfigEngine/UpdateWatchersListResponse" message="tns:IConfigEngine_UpdateWatchersList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AppConfigDefault">
+      <wsdl:input wsam:Action="http://Beanland.AutoVer.Config/IConfigEngine/AppConfigDefault" message="tns:IConfigEngine_AppConfigDefault_InputMessage" />
+      <wsdl:output wsam:Action="http://Beanland.AutoVer.Config/IConfigEngine/AppConfigDefaultResponse" message="tns:IConfigEngine_AppConfigDefault_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReloadWatcher">
+      <wsdl:input wsam:Action="http://Beanland.AutoVer.Config/IConfigEngine/ReloadWatcher" message="tns:IConfigEngine_ReloadWatcher_InputMessage" />
+      <wsdl:output wsam:Action="http://Beanland.AutoVer.Config/IConfigEngine/ReloadWatcherResponse" message="tns:IConfigEngine_ReloadWatcher_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteWatcher">
+      <wsdl:input wsam:Action="http://Beanland.AutoVer.Config/IConfigEngine/DeleteWatcher" message="tns:IConfigEngine_DeleteWatcher_InputMessage" />
+      <wsdl:output wsam:Action="http://Beanland.AutoVer.Config/IConfigEngine/DeleteWatcherResponse" message="tns:IConfigEngine_DeleteWatcher_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PauseWatcher">
+      <wsdl:input wsam:Action="http://Beanland.AutoVer.Config/IConfigEngine/PauseWatcher" message="tns:IConfigEngine_PauseWatcher_InputMessage" />
+      <wsdl:output wsam:Action="http://Beanland.AutoVer.Config/IConfigEngine/PauseWatcherResponse" message="tns:IConfigEngine_PauseWatcher_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

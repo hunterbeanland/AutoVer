@@ -1,0 +1,251 @@
+﻿Imports System.IO
+Imports System.Text.RegularExpressions
+Imports System.Security.Cryptography
+'Imports ZetaLongPaths
+Imports Alphaleonis.Win32
+Imports System.Runtime.Serialization
+
+Public Class FileUtils
+
+#Region " Recycle Bin "
+    Private Structure SHFILEOPTSTRUCT
+        Dim hWnd As Long
+        Dim wFunc As Long
+        Dim pFrom As String
+        Dim pTo As String
+        Dim fFlags As Integer
+        Dim fAnyOperationsAborted As Long
+        Dim hNameMappings As Long
+        Dim lpszProgressTitle As Long
+    End Structure
+
+    Private Declare Function SHFileOperation Lib "Shell32.dll" Alias "SHFileOperationA" (ByVal lpFileOp As SHFILEOPTSTRUCT) As Long
+
+    Public Sub DeleteFileToRecycleBin(ByVal Filename As String)
+        If Filename.Length > 260 Then Filename = GetLongWin32Path(Filename)
+        Dim fop As New SHFILEOPTSTRUCT
+        With fop
+            .wFunc = &H3 'FO_DELETE
+            .pFrom = Filename
+            .fFlags = &H40 Or &H10 Or &H400 Or &H4 'FOF_ALLOWUNDO or FOF_NOCONFIRMATION or FOF_NOERRORUI or FOF_SILENT
+        End With
+        SHFileOperation(fop)
+    End Sub
+
+    'Sub DeleteFileWoDialog(ByVal FileName As String)
+    '    'Imports Shell32 'Reference Microsoft Shell Controls And Animation on the COM tab.
+    '    'Imports System.Runtime.InteropServices
+    '    Dim Sh As New Shell
+    '    Dim RecycleBin As Folder = Sh.NameSpace(10) 'ssfBITBUCKET
+    '    RecycleBin.MoveHere(FileName, 1024 Or 64 Or 16 Or 4)  'Options in help.
+    '    Marshal.FinalReleaseComObject(Sh)
+    'End Sub
+#End Region
+
+#Region " Long Path File and Directory Functions "
+    'We use ZetaLongPaths component for most of this.
+    'Refer: http://msdn.microsoft.com/en-gb/library/aa365247.aspx
+    'Delimon.Win32.IO replacement library (old): http://www.mycsharp.de/wbb2/attachment.php?attachmentid=7830&sid=4a8ad87cc897ad936e36ca0d1b030524
+    'http://zetalongpaths.codeplex.com/
+
+
+    Private Declare Function Win32CopyFile Lib "kernel32" Alias "CopyFileA" (ByVal lpExistingFileName As String, ByVal lpNewFileName As String, ByVal bFailIfExists As Long) As Long
+
+    Public Shared Function GetLongWin32Path(ByVal dir As String) As String
+        If dir.StartsWith("\\?\") Then Return dir
+        If dir.StartsWith("\\") Then Return String.Concat("\\?\UNC\", dir.Substring(2, (dir.Length - 2)))
+        Return String.Concat("\\?\", dir)
+    End Function
+
+    Public Shared Function GetNormalPath(ByVal dir As String) As String
+        If dir.StartsWith("\\?\UNC\") Then Return ("\\" & dir.Substring(8, (dir.Length - 8)))
+        If dir.StartsWith("\\?\") Then Return dir.Substring(4, (dir.Length - 4))
+        Return dir
+    End Function
+
+    Public Shared Sub GetLastErrorAndThrowIfFailed(ByVal extra As String)
+        If (Runtime.InteropServices.Marshal.GetLastWin32Error <> 0) Then
+            Throw New Exception((New System.ComponentModel.Win32Exception(Runtime.InteropServices.Marshal.GetLastWin32Error).Message & " : " & extra))
+        End If
+    End Sub
+
+    Public Function CopyFile(ByVal source As String, ByVal destination As String, ByVal overwrite As Boolean) As Boolean
+        Dim flag As Boolean = Win32CopyFile(GetLongWin32Path(source), GetLongWin32Path(destination), Not overwrite)
+        If Not flag Then GetLastErrorAndThrowIfFailed(GetNormalPath(source))
+        Return flag
+    End Function
+
+    'Public Function ZLPFileInfoToStringArray(ByRef aryZlpFiles() As FileSystem.FileInfo) As String()
+    '    'Convert array of ZlpFileInfo to String
+    '    If aryZlpFiles.Length = 0 Then
+    '        Dim aryFilesNone(-1) As String
+    '        Return aryFilesNone
+    '    End If
+    '    Dim aryFiles(aryZlpFiles.GetUpperBound(0)) As String
+    '    Dim intIndex As Integer
+    '    For Each zlpFile As Filesystem.FileInfo In aryZlpFiles
+    '        aryFiles(intIndex) = zlpFile.FullName
+    '        intIndex += 1
+    '    Next
+    '    Return aryFiles
+    'End Function
+
+#End Region
+
+#Region " File Compare "
+
+    ''' <summary>
+    ''' Compare the content of 2 files
+    ''' </summary>
+    ''' <param name="filePathOne">Absolute path of primary file</param>
+    ''' <param name="filePathTwo">Absolute path of backup file. Empty = no file</param>
+    ''' <returns>True is identical content</returns>
+    ''' <remarks></remarks>
+    Public Function CompareFilesSame(ByVal filePathOne As String, ByVal filePathTwo As String) As Boolean
+        Try
+            'Do a quick check (patch for long path until we get long path support in file streams)
+            If filePathTwo.Length < 4 Or filePathTwo.Length > 260 Then Return False
+            If New Filesystem.FileInfo(filePathOne).Length <> New Filesystem.FileInfo(filePathTwo).Length Then Return False
+            'Calc SHA1 hash
+            If ComputeFileHash(filePathOne) <> ComputeFileHash(filePathTwo) Then Return False
+        Catch ex As Exception
+            Dim Log As New Logger
+            Log.Error(ex.Message, "ComputeFileHash")
+            Return False
+        End Try
+        Return True
+    End Function
+
+    Private Function ComputeFileHash(ByVal filePath As String) As String
+        Dim theHMACSHA1 As HMACSHA1
+        Dim theKeyValue As Byte()
+        Dim theHashValue As Byte()
+        theKeyValue = (New System.Text.UnicodeEncoding).GetBytes("HashingKey")
+        theHMACSHA1 = New HMACSHA1(theKeyValue, True)
+
+        Using theInStream As New FileStream(filePath, FileMode.Open, FileAccess.Read)
+            theHashValue = theHMACSHA1.ComputeHash(theInStream)
+            theInStream.Close()
+        End Using
+
+        'Dim SHA256 As New SHA256Managed()
+        'Using theInStream As New FileStream(filePath, FileMode.Open, FileAccess.Read)
+        '    theHashValue = SHA256.ComputeHash(theInStream)
+        '    theInStream.Close()
+        'End Using
+
+        Return System.Text.Encoding.UTF8.GetString(theHashValue)
+    End Function
+#End Region
+End Class
+
+<DataContractAttribute()> _
+Public Class ChangeDetails
+    Public ChangeType As WatcherChangeTypes
+    Public FirstPath As String
+    Public SecondPath As String
+    Public Retries As Int16
+
+    Public Sub New(ByVal Change As WatcherChangeTypes, ByVal First As String, ByVal Second As String)
+        ChangeType = Change
+        FirstPath = First
+        SecondPath = Second
+    End Sub
+End Class
+
+Public Class FileFolderFilter
+    Private strIncludeFiles, strExcludeFiles, strExcludeFolders As String
+    Private aryIncludeFiles(), aryExcludeFiles(), aryExcludeFolders() As String
+    'Private Log As New Logger
+
+    Public Sub SetupFilters(ByVal IncludeFiles As String, ByVal ExcludeFiles As String, ByVal ExcludeFolders As String)
+        'Setup the filter settings before we check files/folders for a match
+        strIncludeFiles = IIf(IncludeFiles.Contains(";"), FileMaskToRegEx(IncludeFiles), IncludeFiles)
+        strExcludeFiles = FileMaskToRegEx(ExcludeFiles)
+        strExcludeFolders = FileMaskToRegEx(ExcludeFolders)
+        'Dim Log As New Logger
+        'Log.Debug(strExcludeFiles, "strExcludeFiles")
+        'Log.Debug(strExcludeFolders, "strExcludeFolders")
+        aryIncludeFiles = strIncludeFiles.Split(New Char() {";"})
+        aryExcludeFiles = strExcludeFiles.Split(New Char() {";"})
+        aryExcludeFolders = strExcludeFolders.Split(New Char() {";"})
+        Dim aryTemp As New ArrayList
+        Dim intItem As Int16
+
+        For intItem = 0 To aryIncludeFiles.Length - 1
+            If aryIncludeFiles(intItem).Trim.Length > 0 Then aryTemp.Add(String.Concat("^", aryIncludeFiles(intItem).Trim, "$"))
+        Next
+        ReDim aryIncludeFiles(aryTemp.Count - 1)
+        aryTemp.CopyTo(aryIncludeFiles)
+
+        aryTemp.Clear()
+        For intItem = 0 To aryExcludeFiles.Length - 1
+            If aryExcludeFiles(intItem).Trim.Length > 0 Then aryTemp.Add(String.Concat("^", aryExcludeFiles(intItem).Trim, "$"))
+        Next
+        ReDim aryExcludeFiles(aryTemp.Count - 1)
+        aryTemp.CopyTo(aryExcludeFiles)
+
+        aryTemp.Clear()
+        For intItem = 0 To aryExcludeFolders.Length - 1
+            If aryExcludeFolders(intItem).Trim.Length > 0 Then
+                aryExcludeFolders(intItem) = aryExcludeFolders(intItem).Trim.Replace("/", "\")
+                If Not aryExcludeFolders(intItem).StartsWith("\") Then aryExcludeFolders(intItem) = "\\" & aryExcludeFolders(intItem)
+                If Not aryExcludeFolders(intItem).EndsWith("\") Then aryExcludeFolders(intItem) &= "\\"
+                'Log.Debug(aryExcludeFolders(intItem), "aryExcludeFolders(intItem)")
+                aryTemp.Add(aryExcludeFolders(intItem))
+            End If
+        Next
+        ReDim aryExcludeFolders(aryTemp.Count - 1)
+        aryTemp.CopyTo(aryExcludeFolders)
+    End Sub
+
+    Public Function FileMaskToRegEx(ByVal FileMask As String) As String
+        'Convert Windows file mask to Regex file mask
+        Dim reg As New Regex("([^\w\s\*;]){1}", System.Text.RegularExpressions.RegexOptions.IgnoreCase)
+        FileMask = reg.Replace(FileMask, "\$0")
+        Return FileMask.Replace("*", ".*").Replace("?", ".")
+    End Function
+
+    Public Function CanCopy(ByVal File As String, ByVal Folder As String) As Boolean
+        'Apply filters
+        Dim blnCopyFile As Boolean = True
+        Dim intMask As Int16
+        If strIncludeFiles <> "*.*" Then
+            blnCopyFile = False
+            For intMask = 0 To aryIncludeFiles.Length - 1
+                If Regex.IsMatch(File, aryIncludeFiles(intMask), RegexOptions.IgnoreCase) Then blnCopyFile = True
+            Next
+        End If
+        If aryExcludeFiles.Length > 0 Then
+            For intMask = 0 To aryExcludeFiles.Length - 1
+                If Regex.IsMatch(File, aryExcludeFiles(intMask), RegexOptions.IgnoreCase) Then blnCopyFile = False
+            Next
+        End If
+        If aryExcludeFolders.Length > 0 Then
+            Folder = Folder.Replace("/", "\") 'normalise ftp folders
+            If Not Folder.StartsWith("\") Then Folder = String.Concat("\", Folder)
+            If Not Folder.EndsWith("\") Then Folder = String.Concat(Folder, "\")
+            For intMask = 0 To aryExcludeFolders.Length - 1
+                If Regex.IsMatch(Folder, aryExcludeFolders(intMask), RegexOptions.IgnoreCase) Then blnCopyFile = False
+            Next
+        End If
+        'Log.Debug(blnCopyFile.ToString, File)
+        Return blnCopyFile
+    End Function
+
+    Public Function CanCopyFolder(ByVal Folder As String) As Boolean
+        'Apply filters
+        Dim blnCopyFile As Boolean = True
+        Dim intMask As Int16
+        If aryExcludeFolders.Length > 0 Then
+            Folder = Folder.Replace("/", "\") 'normalise ftp folders
+            If Not Folder.StartsWith("\") Then Folder = String.Concat("\", Folder)
+            If Not Folder.EndsWith("\") Then Folder = String.Concat(Folder, "\")
+            For intMask = 0 To aryExcludeFolders.Length - 1
+                If Regex.IsMatch(Folder, aryExcludeFolders(intMask), RegexOptions.IgnoreCase) Then blnCopyFile = False
+            Next
+        End If
+        'Log.Debug(blnCopyFile.ToString, File)
+        Return blnCopyFile
+    End Function
+End Class

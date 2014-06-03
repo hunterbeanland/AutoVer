@@ -1,0 +1,49 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "AutoVerService", "AutoVerService\AutoVerService.vbproj", "{9DCC3F79-E769-4A97-B819-460A932B3E80}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "AutoVerEngine", "AutoVerEngine\AutoVerEngine.vbproj", "{1AADB245-4E76-4A25-9952-520E0C934F00}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "AutoVerTestForms", "AutoVerServiceWinForms\AutoVerTestForms.vbproj", "{DB6AB349-9587-48CD-95D1-36AAE48F6C6E}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "AutoVerUI", "AutoVerUI\AutoVerUI.vbproj", "{C48D960D-DBA3-4D36-B3A9-2C617A4DE96B}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "AutoVerUnitTests", "AutoVerUnitTests\AutoVerUnitTests.vbproj", "{30F7E4A5-030E-4F5F-9D13-5B1446B09FEE}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 1
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://nexagroup.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9DCC3F79-E769-4A97-B819-460A932B3E80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DCC3F79-E769-4A97-B819-460A932B3E80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DCC3F79-E769-4A97-B819-460A932B3E80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DCC3F79-E769-4A97-B819-460A932B3E80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AADB245-4E76-4A25-9952-520E0C934F00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AADB245-4E76-4A25-9952-520E0C934F00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AADB245-4E76-4A25-9952-520E0C934F00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AADB245-4E76-4A25-9952-520E0C934F00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB6AB349-9587-48CD-95D1-36AAE48F6C6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB6AB349-9587-48CD-95D1-36AAE48F6C6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB6AB349-9587-48CD-95D1-36AAE48F6C6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB6AB349-9587-48CD-95D1-36AAE48F6C6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C48D960D-DBA3-4D36-B3A9-2C617A4DE96B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C48D960D-DBA3-4D36-B3A9-2C617A4DE96B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C48D960D-DBA3-4D36-B3A9-2C617A4DE96B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C48D960D-DBA3-4D36-B3A9-2C617A4DE96B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30F7E4A5-030E-4F5F-9D13-5B1446B09FEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30F7E4A5-030E-4F5F-9D13-5B1446B09FEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30F7E4A5-030E-4F5F-9D13-5B1446B09FEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30F7E4A5-030E-4F5F-9D13-5B1446B09FEE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
