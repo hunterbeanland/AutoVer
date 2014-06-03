@@ -1,19 +1,19 @@
 <?xml version="1.0" ?>
 <XML_DIZ_INFO>
 	<MASTER_PAD_VERSION_INFO>
-		<MASTER_PAD_VERSION>3.01</MASTER_PAD_VERSION>
-		<MASTER_PAD_EDITOR>PADGen 3.0.1.35 http://www.padgen.org</MASTER_PAD_EDITOR>
-		<MASTER_PAD_INFO>Portable Application Description, or PAD for short, is a data set that is used by shareware authors to disseminate information to anyone interested in their software products. To find out more go to http://www.asp-shareware.org/pad</MASTER_PAD_INFO>
+		<MASTER_PAD_VERSION>3.11</MASTER_PAD_VERSION>
+		<MASTER_PAD_EDITOR>PADGen 3.1.1.50 http://www.padgen.org</MASTER_PAD_EDITOR>
+		<MASTER_PAD_INFO>Portable Application Description, or PAD for short, is a data set that is used by shareware authors to disseminate information to anyone interested in their software products. To find out more go to http://pad.asp-software.org</MASTER_PAD_INFO>
 	</MASTER_PAD_VERSION_INFO>
 	<Company_Info>
 		<Company_Name>Bean</Company_Name>
 		<Address_1 />
 		<Address_2 />
-		<City_Town />
+		<City_Town>Sydney</City_Town>
 		<State_Province />
 		<Zip_Postal_Code />
 		<Country>Australia</Country>
-		<Company_WebSite_URL>beanland.net.au</Company_WebSite_URL>
+		<Company_WebSite_URL>http://beanland.net.au</Company_WebSite_URL>
 		<Contact_Info>
 			<Author_First_Name>Hunter</Author_First_Name>
 			<Author_Last_Name>Beanland</Author_Last_Name>
@@ -23,8 +23,8 @@
 			<Contact_Email>hunter@beanland.net.au</Contact_Email>
 		</Contact_Info>
 		<Support_Info>
-			<Sales_Email />
-			<Support_Email />
+			<Sales_Email>hunter@beanland.net.au</Sales_Email>
+			<Support_Email>hunter@beanland.net.au</Support_Email>
 			<General_Email>hunter@beanland.net.au</General_Email>
 			<Sales_Phone />
 			<Support_Phone />
@@ -34,26 +34,26 @@
 	</Company_Info>
 	<Program_Info>
 		<Program_Name>AutoVer</Program_Name>
-		<Program_Version>1.4.0</Program_Version>
+		<Program_Version>2.2.1</Program_Version>
 		<Program_Release_Month>04</Program_Release_Month>
 		<Program_Release_Day>28</Program_Release_Day>
-		<Program_Release_Year>2010</Program_Release_Year>
+		<Program_Release_Year>2014</Program_Release_Year>
 		<Program_Cost_Dollars>0</Program_Cost_Dollars>
 		<Program_Cost_Other_Code />
 		<Program_Cost_Other />
 		<Program_Type>Freeware</Program_Type>
-		<Program_Release_Status>Major Update</Program_Release_Status>
+		<Program_Release_Status>Minor Update</Program_Release_Status>
 		<Program_Install_Support>Install and Uninstall</Program_Install_Support>
-		<Program_OS_Support>Windows2000,WinXP,Windows2003,Windows Vista Starter,Windows Vista Home Basic,Windows Vista Home Premium,Windows Vista Business,Windows Vista Enterprise,Windows Vista Ultimate,Windows Vista Home Basic x64,Windows Vista Home Premium x64,Windows Vista Business x64,Windows Vista Enterprise x64,Windows Vista Ultimate x64, Windows 7, Windows 7 x64</Program_OS_Support>
+		<Program_OS_Support>Win2000,Win7 x32,Win7 x64,WinVista,WinVista x64,WinXP</Program_OS_Support>
 		<Program_Language>English</Program_Language>
-		<Program_Change_Info />
+		<Program_Change_Info>Fixes and minor enhancements</Program_Change_Info>
 		<Program_Specific_Category>Utilities</Program_Specific_Category>
 		<Program_Category_Class>System Utilities::Backup &amp; Restore</Program_Category_Class>
-		<Program_System_Requirements>.NET 2.0 Framework</Program_System_Requirements>
+		<Program_System_Requirements>.NET 4.0 Framework</Program_System_Requirements>
 		<File_Info>
-			<File_Size_Bytes>1008204</File_Size_Bytes>
-			<File_Size_K>984</File_Size_K>
-			<File_Size_MB>0.98</File_Size_MB>
+			<File_Size_Bytes>1244582</File_Size_Bytes>
+			<File_Size_K>1244</File_Size_K>
+			<File_Size_MB>1.2</File_Size_MB>
 		</File_Info>
 		<Expire_Info>
 			<Has_Expire_Info>N</Has_Expire_Info>
@@ -92,7 +92,7 @@ Great for backing up (or one way synchronising) your work or home documents to f
 		</Download_URLs>
 	</Web_Info>
 	<Permissions>
-		<Distribution_Permissions>AutoVer may not be sold or be included in a product or package which intends to receive benefits through the inclusion of AutoVer - unless authorised by the author. AutoVer may be included in any free or non-profit packages, products, cover CDs or web sites providing that it is distributed in its original binary form (setup package).</Distribution_Permissions>
+		<Distribution_Permissions>AutoVer may be included in any packages, products, magazine cover CDs or web sites providing that it is distributed in its original binary form (setup package) and it is made clear that AutoVer is freeware. Please let the author know if the product is included in such distributions.</Distribution_Permissions>
 		<EULA>Please read the following terms and conditions carefully before using this software. Installation or use of this software signifies that you accept the terms of this licence agreement and warranty.
 
 1. Disclaimer of Warranty
@@ -103,14 +103,19 @@ In no event shall the author of this software be held liable for data loss, dama
 AutoVer is provided as FREEWARE for use by any party (private, educational, government or commercial use). If you find this product useful, please consider making a small donation to continue its development.
 
 3. Distribution
-AutoVer may not be sold or be included in a product or package which intends to receive benefits through the inclusion of AutoVer - unless authorised by the author. AutoVer may be included in any free or non-profit packages, products, cover CDs or web sites providing that it is distributed in its original binary form (setup package).
+AutoVer may be included in any packages, products, magazine cover CDs or web sites providing that it is distributed in its original binary form (setup package) and it is made clear that AutoVer is freeware. Please let the author know if the product is included in such distributions.
 
-4. Restrictions on Use
+4. Restrictions on Use 
 This software must not be decompiled, disassembled, reverse engineered or otherwise modified. You may not emulate, clone, rent, lease, or sell AutoVer.
 
 5. Linked Modules
-This application makes use of linked modules which are covered by their own licences: SharpZipLibrary by ICSharpCode.net (GPL with exceptions).
+This application makes use of linked modules which are covered by their own licences: DotNetZip (Ms-PL), SevenZipSharp (LGPL), ZetaLongPaths (LGPL)
 
-Copyright (C) 2007-2010 by Hunter Beanland. All rights reserved.</EULA>
+Copyright (C) 2007 - 2014 by Hunter Beanland. All rights reserved.</EULA>
 	</Permissions>
+	<ASP>
+		<ASP_FORM>Y</ASP_FORM>
+		<ASP_Member>N</ASP_Member>
+		<ASP_Member_Number />
+	</ASP>
 </XML_DIZ_INFO>
