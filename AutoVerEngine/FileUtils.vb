@@ -45,8 +45,6 @@ Public Class FileUtils
     'We use AlphaFS component for most of this.
     'Refer: http://msdn.microsoft.com/en-gb/library/aa365247.aspx
 
-    ' Private Declare Function Win32CopyFile Lib "kernel32" Alias "CopyFileA" (ByVal lpExistingFileName As String, ByVal lpNewFileName As String, ByVal bFailIfExists As Long) As Long
-
     Public Shared Function GetLongWin32Path(ByVal dir As String) As String
         If dir.StartsWith("\\?\") Then Return dir
         If dir.StartsWith("\\") Then Return String.Concat("\\?\UNC\", dir.Substring(2, (dir.Length - 2)))

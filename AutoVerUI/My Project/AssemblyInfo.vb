@@ -11,14 +11,14 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyTitle("AutoVer")> 
 <Assembly: AssemblyDescription("Automatic Versioning & Backup")> 
 <Assembly: AssemblyCompany("Hunter Beanland")> 
-<Assembly: AssemblyProduct("AutoVer")> 
-<Assembly: AssemblyCopyright("Copyright ©  2007 - 2014")> 
+<Assembly: AssemblyProduct("AutoVer")>
+<Assembly: AssemblyCopyright("Copyright ©  2007 - 2025")>
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>
 
 'The following GUID is for the ID of the typelib if this project is exposed to COM
-<Assembly: Guid("509bde1d-3722-4806-b49a-d35c39d1ccbe")> 
+<Assembly: Guid("509bde1d-3722-4806-b49a-d35c39d1ccbe")>
 
 ' Version information for an assembly consists of the following four values:
 '
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("2.3.0.*")> 
-<Assembly: AssemblyFileVersion("2.3.0")> 
+<Assembly: AssemblyVersion("3.0.0.*")>
+<Assembly: AssemblyFileVersion("3.0.0")>
