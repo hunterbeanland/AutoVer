@@ -23,18 +23,18 @@ Partial Class About
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.butOK = New System.Windows.Forms.Button
-        Me.lblProduct = New System.Windows.Forms.Label
-        Me.lblDescription = New System.Windows.Forms.Label
-        Me.lblVersion = New System.Windows.Forms.Label
-        Me.lblCopyright = New System.Windows.Forms.Label
-        Me.lblBy = New System.Windows.Forms.Label
-        Me.lblWebLink = New System.Windows.Forms.LinkLabel
-        Me.Label1 = New System.Windows.Forms.Label
-        Me.lnkDonate = New System.Windows.Forms.LinkLabel
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox
-        Me.lnkUpdates = New System.Windows.Forms.LinkLabel
-        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker
+        Me.butOK = New System.Windows.Forms.Button()
+        Me.lblProduct = New System.Windows.Forms.Label()
+        Me.lblDescription = New System.Windows.Forms.Label()
+        Me.lblVersion = New System.Windows.Forms.Label()
+        Me.lblCopyright = New System.Windows.Forms.Label()
+        Me.lblBy = New System.Windows.Forms.Label()
+        Me.lblWebLink = New System.Windows.Forms.LinkLabel()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lnkDonate = New System.Windows.Forms.LinkLabel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.lnkUpdates = New System.Windows.Forms.LinkLabel()
+        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -140,7 +140,7 @@ Partial Class About
         Me.lnkUpdates.Size = New System.Drawing.Size(218, 22)
         Me.lnkUpdates.TabIndex = 12
         Me.lnkUpdates.TabStop = True
-        Me.lnkUpdates.Text = "Checking for updates..."
+        Me.lnkUpdates.Text = "GitHub Releases"
         Me.lnkUpdates.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'BackgroundWorker1
